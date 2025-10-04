@@ -17,7 +17,8 @@ import math
 
 # ---------- USER: change filename if needed ----------
 INPUT_XLSX = "./Rides.xlsx"
-OUTPUT_XLSX = "ride_assignment_output.xlsx"
+INTERM_OUTPUT_XLSX = "process_detailed_assignment_output.xlsx"
+USER_FRIENDLY_OUTPUT = 'ride_assinment_result.xlsx'
 
 SHEET_STUDENT='students'
 SHEET_DRIVER='drivers'
@@ -271,7 +272,7 @@ else:
     print("No Uber needed — all students assigned to drivers.")
 
 # Save to Excel
-with pd.ExcelWriter(OUTPUT_XLSX) as writer:
+with pd.ExcelWriter(INTERM_OUTPUT_XLSX) as writer:
     pd.DataFrame(driver_summary).to_excel(writer, sheet_name="driver_summary", index=False)
     # Only include rows with students picked or stops
     df_assign = pd.DataFrame(driver_assignments)
@@ -285,4 +286,39 @@ with pd.ExcelWriter(OUTPUT_XLSX) as writer:
     drivers_df.to_excel(writer, sheet_name="input_drivers", index=False)
     dist_df.to_excel(writer, sheet_name="input_distance")
 
-print(f"\nOutput saved to {OUTPUT_XLSX}")
+print(f"\nDetailed process output saved to {INTERM_OUTPUT_XLSX}")
+
+# df_assign has columns: ['driver','location','students_picked','stop_flag']
+# students_df has columns: ['student_name','location']
+
+# 1) Map each location to its assigned driver(s)
+# If multiple drivers pick from same location, we can just pick one driver per student
+location_driver_map = []
+
+for loc in students_df['location'].unique():
+    # drivers who picked students at this location
+    drivers_here = df_assign[df_assign['location'] == loc]
+    
+    if drivers_here.empty:
+        # no driver assigned -> Uber
+        location_driver_map.append((loc, "Uber"))
+    else:
+        # repeat the driver name to cover number of students picked
+        # we just pick the first driver if multiple
+        driver_name = drivers_here.iloc[0]['driver']
+        location_driver_map.append((loc, driver_name))
+
+location_driver_df = pd.DataFrame(location_driver_map, columns=['location','driver_assigned'])
+
+# 2) Merge with student list
+student_assignment_df = students_df.merge(location_driver_df, on='location', how='left')
+
+# 3) Rename columns for clarity
+student_assignment_df = student_assignment_df.rename(columns={'student_name':'Student',
+                                                             'driver_assigned':'Assigned Driver',
+                                                             'location':'Location'})
+
+# 4) Save to Excel
+student_assignment_df.to_excel( USER_FRIENDLY_OUTPUT, index=False)
+print(f"✅ Ride assignments saved to {USER_FRIENDLY_OUTPUT}")
+
