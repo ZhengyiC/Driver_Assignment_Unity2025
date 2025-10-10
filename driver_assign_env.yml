@@ -4,9 +4,10 @@ channels:
   - bioconda
   - defaults
 dependencies:
-  - _libgcc_mutex=0.1=conda_forge
-  - _openmp_mutex=4.5=2_gnu
-  - amply=0.1.6=pyhd8ed1ab_0
+  - python=3.8.5=h1103e12_9_cpython
+#  - _libgcc_mutex=0.1=conda_forge
+  - _openmp_mutex=4.5
+  - amply=0.1.6
   - bzip2=1.0.8=hda65f42_8
   - ca-certificates=2025.8.3=hbd8a1cb_0
   - coin-or-cbc=2.10.12=h8b142ea_1
@@ -44,7 +45,6 @@ dependencies:
   - pip=24.3.1=pyh8b19718_0
   - pulp=2.8.0=py38h578d9bd_0
   - pyparsing=3.1.4=pyhd8ed1ab_0
-  - python=3.8.5=h1103e12_9_cpython
   - python-dateutil=2.9.0=pyhd8ed1ab_0
   - python-tzdata=2024.2=pyhd8ed1ab_0
   - python_abi=3.8=8_cp38
