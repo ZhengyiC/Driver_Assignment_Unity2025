@@ -15,6 +15,7 @@ import pandas as pd
 import pulp
 import math
 import sys
+import os
 
 # ---------- USER: change filename if needed ----------
 #INPUT_XLSX = "./Rides.xlsx"
@@ -336,6 +337,7 @@ if __name__=="__main__":
         sys.exit(1)
     input_xlsx = sys.argv[1]
     user_friendly_output = sys.argv[2]
+    os.environ["PULP_TMPDIR"] = "/content"
 
     assign_driver( input_xlsx, user_friendly_output)
 
