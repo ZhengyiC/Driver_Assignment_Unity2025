@@ -330,6 +330,7 @@ def assign_driver( input_xlsx, user_friendly_output):
 
 if __name__=="__main__":
     #print( "in main")
+    ! chmod ugo+x /usr/local/lib/python3.11/site-packages/pulp/solverdir/cbc
     if( len( sys.argv) !=3 ):
         print( "Usage: python3 assign_driver.py [input excel name] [output excel name]]")
         sys.exit(1)
