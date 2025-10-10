@@ -14,6 +14,7 @@ Output: printed summary and "ride_assignment_output.xlsx" with:
 import pandas as pd
 import pulp
 import math
+import sys
 
 # ---------- USER: change filename if needed ----------
 #INPUT_XLSX = "./Rides.xlsx"
