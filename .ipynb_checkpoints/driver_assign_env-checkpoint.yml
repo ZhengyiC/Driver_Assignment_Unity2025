@@ -4,59 +4,10 @@ channels:
   - bioconda
   - defaults
 dependencies:
-  - python=3.8.5=h1103e12_9_cpython
-#  - _libgcc_mutex=0.1=conda_forge
-  - _openmp_mutex=4.5
-  - amply=0.1.6
-  - bzip2=1.0.8=hda65f42_8
-  - ca-certificates=2025.8.3=hbd8a1cb_0
-  - coin-or-cbc=2.10.12=h8b142ea_1
-  - coin-or-cgl=0.60.7=h516709c_0
-  - coin-or-clp=1.17.8=h1ee7a9c_0
-  - coin-or-osi=0.108.10=haf5fa05_0
-  - coin-or-utils=2.11.11=hee58242_0
-  - coincbc=2.10.12=4_metapackage
-  - docutils=0.20.1=py38h578d9bd_3
-  - et_xmlfile=2.0.0=pyhd8ed1ab_0
-  - ld_impl_linux-64=2.44=ha97dd6f_2
-  - libblas=3.9.0=36_h4a7cf45_openblas
-  - libcblas=3.9.0=36_h0358290_openblas
-  - libffi=3.2.1=he1b5a44_1007
-  - libgcc=15.1.0=h767d61c_5
-  - libgcc-ng=15.1.0=h69a702a_5
-  - libgfortran=15.1.0=h69a702a_5
-  - libgfortran-ng=15.1.0=h69a702a_5
-  - libgfortran5=15.1.0=hcea5267_5
-  - libgomp=15.1.0=h767d61c_5
-  - liblapack=3.9.0=36_h47877c9_openblas
-  - liblapacke=3.9.0=36_h6ae95b6_openblas
-  - liblzma=5.8.1=hb9d3cd8_2
-  - liblzma-devel=5.8.1=hb9d3cd8_2
-  - libopenblas=0.3.30=pthreads_h94d23a6_2
-  - libsqlite=3.46.0=hde9e2c9_0
-  - libstdcxx=15.1.0=h8f9b012_5
-  - libstdcxx-ng=15.1.0=h4852527_5
-  - libzlib=1.2.13=h4ab18f5_6
-  - ncurses=6.5=h2d0b736_3
-  - numpy=1.24.4=py38h59b608b_0
-  - openpyxl=3.1.5=py38h01eb140_0
-  - openssl=1.1.1w=hd590300_0
-  - pandas=2.0.3=py38h01efb38_1
-  - pip=24.3.1=pyh8b19718_0
-  - pulp=2.8.0=py38h578d9bd_0
-  - pyparsing=3.1.4=pyhd8ed1ab_0
-  - python-dateutil=2.9.0=pyhd8ed1ab_0
-  - python-tzdata=2024.2=pyhd8ed1ab_0
-  - python_abi=3.8=8_cp38
-  - pytz=2024.2=pyhd8ed1ab_0
-  - readline=8.2=h8c095d6_2
-  - setuptools=75.3.0=pyhd8ed1ab_0
-  - six=1.16.0=pyh6c4a22f_0
-  - sqlite=3.46.0=h6d4b2fc_0
-  - tk=8.6.13=noxft_h4845f30_101
-  - wheel=0.45.1=pyhd8ed1ab_0
-  - xz=5.8.1=hbcc6ac9_2
-  - xz-gpl-tools=5.8.1=hbcc6ac9_2
-  - xz-tools=5.8.1=hb9d3cd8_2
-  - zlib=1.2.13=h4ab18f5_6
-prefix: /home/lucy/anaconda3/envs/test_assignment
+  - python=3.8.5
+  - pandas=2.0.3
+  - pulp=2.8.0
+  - numpy=1.24.4
+  - openpyxl==3.1.5
+
+prefix: /envs/test_assignment
